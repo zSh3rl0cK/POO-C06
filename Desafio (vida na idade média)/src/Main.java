@@ -1,55 +1,62 @@
 import java.util.Random;
 
+// throws interrupted exception
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        Random random = new Random();
+
         Plebeu plebeu1 = new Plebeu();
         Plebeu plebeu2 = new Plebeu();
 
-        plebeu1.nome = "San Marino";    // nome do plebeu
-        plebeu1.dinheiro = 120;         // dinheiro que o plebeu ja tem
-        plebeu1.idade = 44;             // idade do plebeu
-        plebeu1.descanso = 23;          // horas que o plebeu precisa descansar
-        plebeu1.salario = 4.75;           // salario por ciclo do plebeu
+        plebeu1.nome = "Sarasvati";
+        plebeu1.dinheiro = random.nextDouble() * 300;
+        plebeu1.idade = random.nextInt(20) + 20;
+        plebeu1.descanso = random.nextInt(22) + 8;
+        plebeu1.salario = random.nextDouble() * 5 + 1;
 
-        plebeu2.nome = "Isaias";        // nome do outro plebeu
-        plebeu2.dinheiro = 600;         // dinheiro que ele tem
-        plebeu2.idade = 22;             // idade do plebeu
-        plebeu2.descanso = 7;           // horas que precisa descansar
-        plebeu2.salario = 5.25;          // salario por ciclo do plebeu
+        plebeu2.nome = "Izanagi Picaro";
+        plebeu2.dinheiro = random.nextDouble() * 300;
+        plebeu2.idade = random.nextInt(20) + 20;
+        plebeu2.descanso = random.nextInt(22) + 8;
+        plebeu2.salario = random.nextDouble() * 5 + 1;
 
-        // ciclo da vida (1 ou eterno?)
-        while(true){
-            // necessario randomizar o tempo nos eventos e um temporizador para as coisas demorarem segundos p/ acontecer
-            // corrigir coisas como descanso negativo etc
-
+        while (true) {
             // evento de trabalho
-            plebeu1.trabalhar(12);
-            plebeu2.trabalhar(8);
+            int trabalho = random.nextInt(16);
+            plebeu1.trabalhar(trabalho);
 
-            // dinheiro após o trabalho
-            System.out.println(plebeu1.nome + " trabalhou por longas horas e recebeu " + plebeu1.dinheiro + "\n");
-            System.out.println(plebeu2.nome + " trabalhou por algumas horas e recebeu " + plebeu2.dinheiro + "\n");
+            trabalho = random.nextInt(16);
+            plebeu2.trabalhar(trabalho);
 
-            // evento de descanso pós trabalho
-            plebeu1.descansar(5);
-            plebeu2.descansar(3);
+            Thread.sleep(5000);
 
-            System.out.println(plebeu1.nome + " cansado do trbalho, descansou por algumas horas, queria descansar " + plebeu1.descanso + "\n");
-            System.out.println(plebeu2.nome + " cansado do trbalho, descansou por algumas horas, queria descansar " + plebeu2.descanso + "\n");
+            // evento de descanso
+            int descanso = random.nextInt(4) + 4;
+            plebeu1.descansar(descanso);
 
-            // evento em que plebeu X morre
-            int ramdomizer = new Random().nextInt(2);
+            descanso = random.nextInt(4) + 4;
+            plebeu2.descansar(descanso);
 
-            if(ramdomizer == 0){
+            Thread.sleep(5000);
+
+
+            // evento de pagar imposto
+            double imposto = random.nextDouble() * 200;
+            plebeu1.pagarImposto(imposto);
+            plebeu2.pagarImposto(imposto);
+
+            Thread.sleep(5000);
+
+            // evento de morte de um plebeu
+            int randomizer = random.nextInt(2);
+            if (randomizer == 0) {
                 plebeu1.vivo = false;
-                System.out.println(plebeu1.nome + " morreu de: hemorroida " + "\n");
-
+                System.out.println(plebeu1.nome + " morreu de hemorroida.");
                 break;
             }
-
-            else{
+            else {
                 plebeu2.vivo = false;
-                System.out.println(plebeu2.nome + " morreu de: escoliose " + "\n");
+                System.out.println(plebeu2.nome + " morreu de escoliose.");
                 break;
             }
         }

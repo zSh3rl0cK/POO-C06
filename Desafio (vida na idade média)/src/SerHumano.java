@@ -1,4 +1,4 @@
-public class SerHumano {
+public class SerHumano extends Family{
     String nome;
     int idade;
     int descanso;
@@ -10,5 +10,8 @@ public class SerHumano {
 
     public void descansar(int tempo){
         descanso -= tempo;
+
+        System.out.println(nome + " descansou por " + descanso + " horas." +"\n");
     }
+
 }
