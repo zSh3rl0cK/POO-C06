@@ -2,6 +2,13 @@ public class Plebeu extends SerHumano{
     double dinheiro;
     double salario;
 
+    public Plebeu(String nome, int idade, int descanso, boolean vivo, double dinheiro, double salario){
+        super(nome, idade, descanso, vivo);
+        this.dinheiro = dinheiro;
+        this.salario = salario;
+    }
+
+
     public void trabalhar(int horas){
         System.out.println(nome + " Trabalhou por: " + horas + " horas e agora tem " + Math.ceil(dinheiro) + " moedas.");
         System.out.println("Trabalhar é muito cansativo!" + "\n");
@@ -12,7 +19,7 @@ public class Plebeu extends SerHumano{
     }
 
     public void pagarImposto(double imposto){
-        System.out.println(nome + " Pagara imposto avaliado em: " + Math.ceil(imposto) + "\n");
+        System.out.println(nome + " Pagara imposto avaliado em: " + Math.ceil(imposto));
 
         if(dinheiro > imposto) {
             dinheiro = Math.ceil(dinheiro - imposto);
