@@ -15,6 +15,8 @@ Repositório contendo os materiais e exercícios das aulas de POO.
 | 7 | Arrays no Java | [Acessar Aula 8](https://github.com/zSh3rl0cK/POO-C06/tree/main/Aula%208%20e%209/arrays_aula1) |
 | 8 | Arrays no Java (Parte 2) | [Acessar Aula 9](https://github.com/zSh3rl0cK/POO-C06/tree/main/Aula%208%20e%209/arrays_aula2) |
 | 10 | Modificadores de Acesso | [Acessar Aula 10](https://github.com/zSh3rl0cK/POO-C06/tree/main/Aula%2010) |
+| 11 | Exercício: Asteroides | [Acessar Aula 11](https://github.com/zSh3rl0cK/POO-C06/tree/main/Aula%2010) |
+| 12 | Exercício: Arkanoid | [Acessar Aula 11](https://github.com/zSh3rl0cK/POO-C06/tree/main/Aula%2010) |
 
 ## Tecnologias Utilizadas
 - Java
